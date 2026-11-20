@@ -14,11 +14,11 @@ We provide two tiers of resolution to suit different project needs:
 
 | Version | File Size | Description | Best For | Link |
 | :--- | :--- | :--- | :--- | :--- |
-| **Ultra High-Detail** | **22.5 MB** | Uncompressed, ultra-dense coordinates with sub-kilometer fidelity | 4K video rendering, GIS desktop analysis (QGIS, ArcGIS), print maps | [`maps/high-detail/world_1936.geojson`](maps/high-detail/world_1936.geojson) |
-| **Standard (Web-Ready)** | **4.5 MB** | Smooth, topology-preserving geometry (< 5 MB) | Web apps (Leaflet, Mapbox, D3.js), mobile apps, instant GitHub browser preview | [`maps/standard/world_1936.geojson`](maps/standard/world_1936.geojson) |
+| **Ultra High-Detail** | **22.5 MB** | Uncompressed, ultra-dense coordinates with sub-kilometer fidelity | 4K video rendering, GIS desktop analysis (QGIS, ArcGIS), high-fidelity browser exploration | [`maps/high-detail/world_1936.geojson`](maps/high-detail/world_1936.geojson) |
+| **Standard (Web-Ready)** | **4.5 MB** | Lightweight, smooth, topology-preserving geometry | Web apps (Leaflet, Mapbox, D3.js), mobile apps, fast network transfers | [`maps/standard/world_1936.geojson`](maps/standard/world_1936.geojson) |
 
 > [!TIP]
-> **Instant GitHub Preview**: Because the **Standard** version is under 5 MB, clicking [`world_1936.geojson`](maps/standard/world_1936.geojson) will render an interactive vector map directly inside GitHub!
+> **Interactive GitHub Preview**: Both versions render interactively right in GitHub's web interface! You can click on either map file above to pan, zoom, and inspect historical borders directly in your browser.
 
 ---
 
