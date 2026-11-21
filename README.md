@@ -78,6 +78,31 @@ fetch("maps/standard/world_1936.geojson")
 
 ---
 
+## 🛠️ Coastline Upscaler Tool (`tools/upscale_coastlines.py`)
+
+Want to upscale your own historical maps? We've open-sourced the standalone tool used to produce the **Ultra High-Detail** map.
+
+### How it Works (The Coastal Slivers Algorithm)
+Raw historical datasets often have jagged, coarse coastlines and missing islands. This tool:
+1. Compares raw historical borders against modern high-resolution land polygons (e.g. Natural Earth 10m).
+2. Isolates the missing coastal slivers and coastal islands.
+3. Snaps each coastal sliver to the nearest historical nation using spatial nearest-neighbor joins (`sjoin_nearest`) with deduplication.
+4. **Strictly preserves internal historical borders** while elevating coastlines to sub-kilometer resolution.
+
+### Usage
+```bash
+# 1. Install dependencies
+pip install -r tools/requirements.txt
+
+# 2. Run upscaler
+python tools/upscale_coastlines.py \
+  --input path/to/raw_historical_map.geojson \
+  --reference path/to/high_res_land.geojson \
+  --output path/to/upscaled_map.geojson
+```
+
+---
+
 ## 🗺️ Roadmap
 We plan to release additional historical eras:
 - [x] **1936**: Interwar / Pre-WWII
