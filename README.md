@@ -1,6 +1,6 @@
-# 🗺️ Historical World Borders GeoJSON (1936)
+# 🗺️ Historical World Borders GeoJSON
 
-High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format for the year **1936** (Interwar / Pre-World War II).
+High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1936**, **1950**, **2010**).
 
 Enhanced with high-fidelity modern coastlines, solving the jagged borders, missing islands, and coastal-sliver issues common in raw historical shapefiles.
 
@@ -8,17 +8,21 @@ Enhanced with high-fidelity modern coastlines, solving the jagged borders, missi
 
 ---
 
-## 📦 Available Formats
+## 📦 Available Maps & Formats
 
-We provide two tiers of resolution to suit different project needs:
+We provide two tiers of resolution for each historical era:
 
-| Version | File Size | Description | Best For | Link |
-| :--- | :--- | :--- | :--- | :--- |
-| **Ultra High-Detail** | **22.5 MB** | Uncompressed, ultra-dense coordinates with sub-kilometer fidelity | 4K video rendering, GIS desktop analysis (QGIS, ArcGIS), high-fidelity browser exploration | [`maps/high-detail/world_1936.geojson`](maps/high-detail/world_1936.geojson) |
-| **Standard (Web-Ready)** | **4.5 MB** | Lightweight, smooth, topology-preserving geometry | Web apps (Leaflet, Mapbox, D3.js), mobile apps, fast network transfers | [`maps/standard/world_1936.geojson`](maps/standard/world_1936.geojson) |
+| Year | Era / Description | Ultra High-Detail (4K / GIS) | Standard (Web-Ready / < 5MB) |
+| :--- | :--- | :---: | :---: |
+| **1936** | Interwar / Pre-WWII | [Download (22.5 MB)](maps/high-detail/world_1936.geojson) | [Download (4.5 MB)](maps/standard/world_1936.geojson) |
+| **1950** | Early Cold War / Post-WWII | [Download (22.8 MB)](maps/high-detail/world_1950.geojson) | [Download (4.6 MB)](maps/standard/world_1950.geojson) |
+| **2010** | Modern Baseline | [Download (22.5 MB)](maps/high-detail/world_2010.geojson) | [Download (4.5 MB)](maps/standard/world_2010.geojson) |
+
+- **Ultra High-Detail (~22.5 MB)**: Uncompressed, ultra-dense coordinates with sub-kilometer fidelity for 4K video rendering, GIS analysis (QGIS, ArcGIS), and high-resolution prints.
+- **Standard (Web-Ready) (~4.6 MB)**: Lightweight, smooth, topology-preserving geometry (< 5 MB) optimized for Web apps (Leaflet, Mapbox, D3.js), mobile apps, and fast network transfers.
 
 > [!TIP]
-> **Interactive GitHub Preview**: Both versions render interactively right in GitHub's web interface! You can click on either map file above to pan, zoom, and inspect historical borders directly in your browser.
+> **Interactive GitHub Preview**: All files render interactively right in GitHub's web interface! You can click on any map link above to pan, zoom, and inspect historical borders directly in your browser.
 
 ---
 
@@ -106,10 +110,11 @@ python tools/upscale_coastlines.py \
 ## 🗺️ Roadmap
 We plan to release additional historical eras:
 - [x] **1936**: Interwar / Pre-WWII
+- [x] **1950**: Early Cold War / Post-WWII
+- [x] **2010**: Modern Baseline
 - [ ] **1914**: Eve of World War I
 - [ ] **1939**: Outbreak of World War II
 - [ ] **1941**: Axis Expansion Peak
-- [ ] **1945**: Post-WWII / Early Cold War
 - [ ] **1890**: High Imperialism era
 
 ---
