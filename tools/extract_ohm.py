@@ -264,13 +264,15 @@ def process_map_pipeline(
     ref_land_path,
     output_high=None,
     output_standard=None,
+    output_low=None,
     high_tolerance=0.001,
-    standard_tolerance=0.024
+    standard_tolerance=0.024,
+    low_tolerance=0.05
 ):
     """
     Applies the Coastal Slivers Snapper algorithm using the reference land data,
-    replacing bubbly OHM coastlines and generating high-detail (~23 MB) and/or
-    standard web-ready (4-5 MB) tiers.
+    replacing bubbly OHM coastlines and generating high-detail (~23 MB),
+    standard web-ready (4-5 MB), and low-bandwidth (< 2 MB) tiers.
     """
     print(f"\n[*] Harmonizing coastlines with reference: {ref_land_path}")
     land_gdf = gpd.read_file(ref_land_path)
@@ -319,6 +321,37 @@ def process_map_pipeline(
         std_gdf.to_file(output_standard, driver="GeoJSON")
         std_size = os.path.getsize(output_standard) / (1024 * 1024)
         print(f"[✓] Standard Map Created: {std_size:.2f} MB")
+
+    # Save Low Tier (< 2 MB)
+    if output_low:
+        out_dir = os.path.dirname(output_low)
+        if out_dir:
+            os.makedirs(out_dir, exist_ok=True)
+        print(f"\n[*] Generating Low-bandwidth map (< 2 MB, tolerance={low_tolerance})...")
+        from shapely.geometry import mapping, shape
+        from shapely import make_valid
+        low_gdf = upscaled_gdf.copy()
+        low_gdf["geometry"] = low_gdf.geometry.simplify(
+            tolerance=low_tolerance, preserve_topology=True
+        )
+        def _round_geom(geom):
+            if geom is None or geom.is_empty:
+                return geom
+            gj = mapping(geom)
+            def _r(c):
+                if isinstance(c[0], (int, float)):
+                    return [round(c[0], 4), round(c[1], 4)]
+                return [_r(x) for x in c]
+            gj["coordinates"] = _r(gj["coordinates"])
+            s = shape(gj)
+            if not s.is_valid:
+                s = make_valid(s)
+            return s
+        low_gdf["geometry"] = low_gdf["geometry"].apply(_round_geom)
+        print(f"[*] Writing Low-tier map to: {output_low}...")
+        low_gdf.to_file(output_low, driver="GeoJSON")
+        low_size = os.path.getsize(output_low) / (1024 * 1024)
+        print(f"[✓] Low-Tier Map Created: {low_size:.2f} MB")
 
 
 def main():

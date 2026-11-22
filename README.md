@@ -1,6 +1,6 @@
 # 🗺️ Historical World Borders GeoJSON
 
-High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1936**, **1950**, **2010**).
+High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1914**, **1936**, **1950**, **2010**).
 
 Enhanced with high-fidelity modern coastlines, solving the jagged borders, missing islands, and coastal-sliver issues common in raw historical shapefiles.
 
@@ -10,16 +10,18 @@ Enhanced with high-fidelity modern coastlines, solving the jagged borders, missi
 
 ## 📦 Available Maps & Formats
 
-We provide two tiers of resolution for each historical era:
+We provide three tiers of resolution for each historical era:
 
-| Year | Era / Description | Ultra High-Detail (4K / GIS) | Standard (Web-Ready / < 5MB) |
-| :--- | :--- | :---: | :---: |
-| **1936** | Interwar / Pre-WWII | [Download (22.5 MB)](maps/high-detail/world_1936.geojson) | [Download (4.5 MB)](maps/standard/world_1936.geojson) |
-| **1950** | Early Cold War / Post-WWII | [Download (22.8 MB)](maps/high-detail/world_1950.geojson) | [Download (4.6 MB)](maps/standard/world_1950.geojson) |
-| **2010** | Modern Baseline | [Download (22.5 MB)](maps/high-detail/world_2010.geojson) | [Download (4.5 MB)](maps/standard/world_2010.geojson) |
+| Year | Era / Description | Ultra High-Detail (4K / GIS) | Standard (Web-Ready / < 5MB) | Low (Fast / < 2MB) |
+| :--- | :--- | :---: | :---: | :---: |
+| **1914** | Eve of World War I | [Download (25.0 MB)](maps/high-detail/world_1914.geojson) | [Download (4.9 MB)](maps/standard/world_1914.geojson) | [Download (1.8 MB)](maps/low/world_1914.geojson) |
+| **1936** | Interwar / Pre-WWII | [Download (22.5 MB)](maps/high-detail/world_1936.geojson) | [Download (4.5 MB)](maps/standard/world_1936.geojson) | [Download (1.4 MB)](maps/low/world_1936.geojson) |
+| **1950** | Early Cold War / Post-WWII | [Download (22.8 MB)](maps/high-detail/world_1950.geojson) | [Download (4.6 MB)](maps/standard/world_1950.geojson) | [Download (1.4 MB)](maps/low/world_1950.geojson) |
+| **2010** | Modern Baseline | [Download (22.5 MB)](maps/high-detail/world_2010.geojson) | [Download (4.5 MB)](maps/standard/world_2010.geojson) | [Download (1.4 MB)](maps/low/world_2010.geojson) |
 
-- **Ultra High-Detail (~22.5 MB)**: Uncompressed, ultra-dense coordinates with sub-kilometer fidelity for 4K video rendering, GIS analysis (QGIS, ArcGIS), and high-resolution prints.
-- **Standard (Web-Ready) (~4.6 MB)**: Lightweight, smooth, topology-preserving geometry (< 5 MB) optimized for Web apps (Leaflet, Mapbox, D3.js), mobile apps, and fast network transfers.
+- **Ultra High-Detail (~23-25 MB)**: Ultra-dense coordinates with sub-kilometer fidelity for 4K video rendering, GIS analysis (QGIS, ArcGIS), and high-resolution prints.
+- **Standard (Web-Ready) (~4.6 MB)**: Lightweight, smooth, topology-preserving geometry (< 5 MB) optimized for Web apps (Leaflet, Mapbox, D3.js) and fast network transfers.
+- **Low (Fast / Mobile) (< 2 MB)**: Ultra-compact, topology-preserved geometry with 4-decimal precision (~1.4 MB) optimized for instant mobile loading, low-bandwidth environments, and high-performance charting.
 
 > [!TIP]
 > **Interactive GitHub Preview**: All files render interactively right in GitHub's web interface! You can click on any map link above to pan, zoom, and inspect historical borders directly in your browser.
