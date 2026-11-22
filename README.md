@@ -112,7 +112,7 @@ We plan to release additional historical eras:
 - [x] **1936**: Interwar / Pre-WWII
 - [x] **1950**: Early Cold War / Post-WWII
 - [x] **2010**: Modern Baseline
-- [ ] **1914**: Eve of World War I
+- [x] **1914**: Eve of World War I
 - [ ] **1939**: Outbreak of World War II
 - [ ] **1941**: Axis Expansion Peak
 - [ ] **1890**: High Imperialism era
