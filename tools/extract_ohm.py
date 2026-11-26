@@ -7,21 +7,24 @@ geometries using the Coastal Slivers Snapper method (Natural Earth coastlines),
 completely replacing raw, bubbly crowdsourced coastlines with crisp cartographic
 coastlines.
 
-Generates two standardized tiers:
+Generates three standardized tiers:
   1. High-Detail (~22.5 MB): Full Natural Earth 10m fidelity for 4K video & GIS.
   2. Standard (4.5 MB): Topology-preserving simplified coastlines (tolerance ~0.024)
      optimized for web maps (Leaflet, Mapbox, D3.js).
+  3. Low (<2 MB): Ultra-compact, 4-decimal precision (tolerance ~0.05) for mobile.
 
 Usage Examples:
-  # Query OHM and generate BOTH tiers in one command:
+  # Query OHM and generate ALL THREE tiers in one command:
   python tools/extract_ohm.py --year 1914 \
     --output-high maps/high-detail/world_1914.geojson \
-    --output-standard maps/standard/world_1914.geojson
+    --output-standard maps/standard/world_1914.geojson \
+    --output-low maps/low/world_1914.geojson
 
   # Process an already-downloaded raw extract:
   python tools/extract_ohm.py --input maps/raw_1914.geojson \
     --output-high maps/high-detail/world_1914.geojson \
-    --output-standard maps/standard/world_1914.geojson
+    --output-standard maps/standard/world_1914.geojson \
+    --output-low maps/low/world_1914.geojson
 """
 
 import os
@@ -386,6 +389,12 @@ def main():
         help="Path to output Standard (4-5 MB) GeoJSON (e.g. maps/standard/world_1914.geojson)"
     )
     parser.add_argument(
+        "--output-low",
+        type=str,
+        default=None,
+        help="Path to output Low-bandwidth (<2 MB) GeoJSON (e.g. maps/low/world_1914.geojson)"
+    )
+    parser.add_argument(
         "--output",
         type=str,
         default=None,
@@ -411,6 +420,12 @@ def main():
         type=float,
         default=0.024,
         help="Simplification tolerance for the standard web-ready tier (default: 0.024 -> ~4.5 MB)"
+    )
+    parser.add_argument(
+        "--low-tolerance",
+        type=float,
+        default=0.05,
+        help="Simplification tolerance for the low-bandwidth tier (default: 0.05 -> ~1.5 MB)"
     )
     parser.add_argument(
         "--bbox",
@@ -443,6 +458,7 @@ def main():
     # Resolve output targets
     out_high = args.output_high
     out_std = args.output_standard
+    out_low = args.output_low
     if args.output:
         if args.tier == "high":
             out_high = args.output
@@ -451,8 +467,8 @@ def main():
         elif args.tier == "both":
             out_std = args.output
 
-    if not out_high and not out_std:
-        parser.error("You must specify --output-standard, --output-high, or --output.")
+    if not out_high and not out_std and not out_low:
+        parser.error("You must specify --output-standard, --output-high, --output-low, or --output.")
 
     # 1. Obtain raw GeoDataFrame (either from file or OHM)
     if args.input:
@@ -478,8 +494,10 @@ def main():
         ref_land_path=ref_path,
         output_high=out_high,
         output_standard=out_std,
+        output_low=out_low,
         high_tolerance=args.high_tolerance,
-        standard_tolerance=args.standard_tolerance
+        standard_tolerance=args.standard_tolerance,
+        low_tolerance=args.low_tolerance
     )
 
     print("\n==========================================")

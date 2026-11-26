@@ -1,6 +1,6 @@
 # 🗺️ Historical World Borders GeoJSON
 
-High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1914**, **1936**, **1950**, **2010**).
+High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1914**, **1936**, **1950**, **2010**, **2026**).
 
 Enhanced with high-fidelity modern coastlines, solving the jagged borders, missing islands, and coastal-sliver issues common in raw historical shapefiles.
 
@@ -18,6 +18,7 @@ We provide three tiers of resolution for each historical era:
 | **1936** | Interwar / Pre-WWII | [Download (22.5 MB)](maps/high-detail/world_1936.geojson) | [Download (4.5 MB)](maps/standard/world_1936.geojson) | [Download (1.4 MB)](maps/low/world_1936.geojson) |
 | **1950** | Early Cold War / Post-WWII | [Download (22.8 MB)](maps/high-detail/world_1950.geojson) | [Download (4.6 MB)](maps/standard/world_1950.geojson) | [Download (1.4 MB)](maps/low/world_1950.geojson) |
 | **2010** | Modern Baseline | [Download (22.5 MB)](maps/high-detail/world_2010.geojson) | [Download (4.5 MB)](maps/standard/world_2010.geojson) | [Download (1.4 MB)](maps/low/world_2010.geojson) |
+| **2026** | Contemporary Baseline | [Download (26.8 MB)](maps/high-detail/world_2026.geojson) | [Download (5.0 MB)](maps/standard/world_2026.geojson) | [Download (1.8 MB)](maps/low/world_2026.geojson) |
 
 - **Ultra High-Detail (~23-25 MB)**: Ultra-dense coordinates with sub-kilometer fidelity for 4K video rendering, GIS analysis (QGIS, ArcGIS), and high-resolution prints.
 - **Standard (Web-Ready) (~4.6 MB)**: Lightweight, smooth, topology-preserving geometry (< 5 MB) optimized for Web apps (Leaflet, Mapbox, D3.js) and fast network transfers.
@@ -115,6 +116,7 @@ We plan to release additional historical eras:
 - [x] **1950**: Early Cold War / Post-WWII
 - [x] **2010**: Modern Baseline
 - [x] **1914**: Eve of World War I
+- [x] **2026**: Contemporary Baseline
 - [ ] **1939**: Outbreak of World War II
 - [ ] **1941**: Axis Expansion Peak
 - [ ] **1890**: High Imperialism era
