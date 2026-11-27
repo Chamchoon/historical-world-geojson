@@ -1,6 +1,6 @@
 # 🗺️ Historical World Borders GeoJSON
 
-High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1914**, **1936**, **1950**, **2010**, **2026**).
+High-quality, cleaned, and high-resolution historical world boundaries in GeoJSON format across key eras in modern history (**1789**, **1914**, **1936**, **1950**, **2010**, **2026**).
 
 Enhanced with high-fidelity modern coastlines, solving the jagged borders, missing islands, and coastal-sliver issues common in raw historical shapefiles.
 
@@ -14,6 +14,7 @@ We provide three tiers of resolution for each historical era:
 
 | Year | Era / Description | Ultra High-Detail (4K / GIS) | Standard (Web-Ready / < 5MB) | Low (Fast / < 2MB) |
 | :--- | :--- | :---: | :---: | :---: |
+| **1789** | French Revolution / Late Early Modern | [Download (24.6 MB)](maps/high-detail/world_1789.geojson) | [Download (5.0 MB)](maps/standard/world_1789.geojson) | [Download (1.8 MB)](maps/low/world_1789.geojson) |
 | **1914** | Eve of World War I | [Download (25.0 MB)](maps/high-detail/world_1914.geojson) | [Download (4.9 MB)](maps/standard/world_1914.geojson) | [Download (1.8 MB)](maps/low/world_1914.geojson) |
 | **1936** | Interwar / Pre-WWII | [Download (22.5 MB)](maps/high-detail/world_1936.geojson) | [Download (4.5 MB)](maps/standard/world_1936.geojson) | [Download (1.4 MB)](maps/low/world_1936.geojson) |
 | **1950** | Early Cold War / Post-WWII | [Download (22.8 MB)](maps/high-detail/world_1950.geojson) | [Download (4.6 MB)](maps/standard/world_1950.geojson) | [Download (1.4 MB)](maps/low/world_1950.geojson) |
@@ -112,6 +113,7 @@ python tools/upscale_coastlines.py \
 
 ## 🗺️ Roadmap
 We plan to release additional historical eras:
+- [x] **1789**: French Revolution / Late Early Modern
 - [x] **1936**: Interwar / Pre-WWII
 - [x] **1950**: Early Cold War / Post-WWII
 - [x] **2010**: Modern Baseline
